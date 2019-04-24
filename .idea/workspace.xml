@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed13247d-2171-41b0-87e1-34b500e843df" name="Default" comment="" />
+    <list default="true" id="ed13247d-2171-41b0-87e1-34b500e843df" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
@@ -68,6 +70,15 @@
                 <element signature="n#!!block;n#defaultBtnText#0;n#Form#0" />
                 <element signature="n#!!block;n#submissionUrl#0;n#Form#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -110,6 +121,9 @@
       <replace>$message =</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -129,6 +143,7 @@
         <option value="$PROJECT_DIR$/inc/globals.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -147,6 +162,7 @@
     <option name="width" value="1853" />
     <option name="height" value="1055" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -159,11 +175,6 @@
             <path>
               <item name="busigence" type="b2602c69:ProjectViewProjectNode" />
               <item name="busigence" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="busigence" type="b2602c69:ProjectViewProjectNode" />
-              <item name="busigence" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -203,12 +214,12 @@
       <workItem from="1555952010941" duration="26823000" />
       <workItem from="1555982163970" duration="466000" />
       <workItem from="1555982770118" duration="25792000" />
-      <workItem from="1556129441442" duration="16511000" />
+      <workItem from="1556129441442" duration="16724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69592000" />
+    <option name="totallyTimeSpent" value="69805000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -229,10 +240,10 @@
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32946146" />
       <window_info anchor="right" id="Database" order="0" weight="0.32982844" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.34927696" />
+      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.35005575" />
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32973558" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -598,6 +609,13 @@
             <element signature="n#!!block;n#defaultBtnText#0;n#Form#0" />
             <element signature="n#!!block;n#submissionUrl#0;n#Form#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
