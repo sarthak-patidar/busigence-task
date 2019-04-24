@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Analyzer</title>
+
+    <!--Base CSS Importing-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Custom App CSS-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">DATA Analyzer</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#" onclick="openSlider('slider')">Slider</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s3 format-selector" style="font-size:1.3em; margin:1px;"><b>1. Select Format</b></div>
+            <div class="col s3 source-selector" style="font-size:1.3em; margin:1px;"><b>2. Select Source</b></div>
+            <div class="col s5 visualizer" style="font-size:1.3em; margin:1px;"><b>3. Visualizer</b></div>
+        </div>
+        <div class="row">
+            <!--Select Format-->
+            <div class="col s3 card-border format-selector">
+                <div class="row container">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a href="#dbConnectDiv">MySQL</a></li>
+                            <li class="tab col s6"><a href="#csvUploadDiv">CSV</a></li>
+                        </ul>
+                    </div>
+                    <div id="dbConnectDiv" class="col s12">
+                        <form id="dbConnect" method="post" class="dbConnect">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="dbHostInput" type="text" name="dbHost" required>
+                                    <label for="dbHostInput">Database Host</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="dbUserInput" type="text" name="dbUser" required>
+                                    <label for="dbUserInput">Database User</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="dbPwdInput" type="password" name="dbPwd" required>
+                                    <label for="dbPwdInput">Password</label>
+                                </div>
+                                <button id="dbConnectSubmit" class="btn waves-effect submit-btn" type="submit" name="dbcon">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="csvUploadDiv" class="col s12">
+                        <form class="csvUpload" id="csvUpload" enctype="multipart/form-data">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File Upload</span>
+                                    <input type="file" id="fileUploadInput" name="csv" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" name="csvPath" id="filePathInput">
+                                </div>
+                            </div>
+                            <button id="csvUploadSubmit" class="btn waves-effect waves-light submit-btn" type="submit" name="csvupload">
+                                Upload
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!--Source Selector-->
+            <div class="col s3 card-border source-selector">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s12"><a id="sourceDataLink" href="#sourceData">MySQL/CSV</a></li>
+                        </ul>
+                    </div>
+                    <div class="col s12" id="sourceData"> Login to MySQL Host/Upload a CSV File to use this panel.
+                    </div>
+                </div>
+            </div>
+
+            <!--Run Mapping & Visualizer-->
+            <div class="col s5 card-border visualizer">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s12"><a id="visualizerLink" href="#visualizer">MySQL/CSV</a></li>
+                        </ul>
+                    </div>
+                    <div id="visualizer" class="col s12">
+                        <div id="defaultVisualizer">
+                            Select a source to enable visualizer.
+                        </div>
+                        <div id="csvVisualizer" style="display: none">
+                            <form id="visualizeCSV" class="visualizeCSV">
+                                <button class="btn z-depth-0 col s6 offset-s3" id="addFile" ondrop="drop(event, 'File Added')" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)">Add File</button>
+                                <input type="hidden" class="input-field" id="addFileInput" name="addFileInput" required>
+                                <button class="btn z-depth-0 col s6 offset-s3" id="transformFile" ondrop="drop(event, 'File Transformed')" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)">Transform File</button>
+                                <input type="hidden" class="input-field" id="transformFileInput" name="transformFileInput" required>
+                                <button class="btn z-depth-0 col s6 offset-s3" id="importFile" ondrop="drop(event, 'Table Created')" ondragover="allowDrop(event)">Output as MySQL</button>
+                                <input type="hidden" class="input-field" id="importFileInput" name="importFileInput" required>
+                                <div class="visualizer-footer">
+                                    <input type="hidden" class="input-field" id="fileName" name="fileName">
+                                    <button id="visualizeCSVSubmit" class="z-depth-2 col s8 offset-s2 btn waves-effect submit-btn" type="submit" name="visualizeCsv">
+                                        Run The Mapping
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="mysqlVisualizer" style="display: none">
+                            <form id="visualizeMySQL" class="visualizeMySQL">
+                                <div class="col s6 table-select">
+                                    <p>Drag and drop tables you wish to join and sort.</p>
+                                    <button class="btn z-depth-0 col s10 offset-s1" id="selectTable1" ondrop="selectTable(event, 1)" ondragover="allowDrop(event)">Table1</button>
+                                    <input type="hidden" class="input-field" id="selectTable1Input" name="selectTable1Input" required value="orders">
+                                    <button class="btn z-depth-0 col s10 offset-s1" id="selectTable2" ondrop="selectTable(event, 2)" ondragover="allowDrop(event)">Table2</button>
+                                    <input type="hidden" class="input-field" id="selectTable2Input" name="selectTable2Input" required value="customers">
+                                </div>
+                                <div class="col s6 table-select">
+                                    <p>Verify primary keys for joining.</p>
+                                    <div class="input-field col s12">
+                                        <select class="browser-default" name="pkTable1" id="pkTable1" required>
+                                            <option value="" selected disabled>Select PK for table 1.</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <select class="browser-default" name="pkTable2" id="pkTable2" required>
+                                            <option value="" selected disabled>Select PK for table 2.</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col s12">
+                                    <p>Select Sort Field and type of sorting.</p>
+                                    <div class="col s6">
+                                        <div class="input-field col s12">
+                                            <select name="sortType" id="sortType" required>
+                                                <option value="ASC">Ascending</option>
+                                                <option value="DESC">Descending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col s6">
+                                        <div class="input-field col s12">
+                                            <select class="browser-default" name="sortField" id="sortField" required>
+                                                <option value="" selected disabled>Select Field to sort.</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="input-field col s6 offset-s3">
+                                    <select name="outputType" id="outputType" required>
+                                        <option value="" selected disabled>Select output file type.</option>
+                                        <option value="mysql">MySQL</option>
+                                        <option value="csv">CSV</option>
+                                    </select>
+                                </div>
+                                <div class="visualizer-footer col s8 offset-s2">
+                                    <button id="visualizeMySQLSubmit" class="z-depth-2 col s12 btn waves-effect submit-btn" type="submit" name="visualizeMysql">
+                                        Run The Mapping
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sliderDiv">
+        <button class="closeSlider" onclick="closeSlider('slider');">X</button>
+        <div id="slider" class="container">
+
+        </div>
+    </div>
+</body>
+
+<!--JQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--Base JS for UI Features-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!--Custom JS for App-->
+<script src="js/app.js"></script>
+</html>

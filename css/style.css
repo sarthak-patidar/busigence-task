@@ -1,0 +1,120 @@
+html{
+    font-size: 16px;
+}
+
+nav {
+    margin-bottom: 50px;
+}
+
+nav ul a{
+    font-size: 1.5em;
+}
+
+#sourceData a{
+    margin: 15px 0;
+}
+
+.submit-btn{
+    margin: 30px 0 !important;
+}
+
+#sliderDiv{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    display: none;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.closeSlider{
+    font-size: 2em;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: white;
+    border: 0;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+table.responsive-table{
+    margin: 50px 20px;
+}
+
+.tabs{
+    margin-bottom: 20px;
+}
+
+form button{
+    margin-left: 4%;
+}
+
+.visualizer-footer button{
+    background-color: #ee6e73;
+    margin-top: 50px !important;
+}
+
+.visualizeMySQL button{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.visualizeCSV button{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.input-field{
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.col .row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.format-selector{
+    margin-left: 0 !important;
+    margin-right: 4% !important;
+}
+
+.visualizer{
+    margin-left: 4% !important;
+    margin-right: 0 !important;
+}
+
+.card-border{
+    border: 1px solid #ee6e73;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 993px) {
+    .container{
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .container{
+        width: 90%;
+    }
+}
+
+.container{
+    width: 95%;
+}
